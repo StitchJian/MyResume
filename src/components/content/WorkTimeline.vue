@@ -2,7 +2,7 @@
   <div>
     <section id="timeline">
       <div class="text-center mb-3">
-        <h1>Experience</h1>
+        <h1 @click="simpleFade">Experience</h1>
       </div>
       <div class="exp-card-wrapper">
         <div class="exp-card exp-card--step1">
@@ -13,8 +13,10 @@
             <h2>Enovia PLM</h2>
           </div>
           <div class="body">
-            <p>1.根據主管單位需求，利用Java制定撰寫簽核流程和表單</p>
-            <p>2.JSP呈現圖形化各進度表,便於管理項目。</p>
+            <p>
+              1.根據單位需求利用Java配合Enovia PLM架構制定修改簽核流程及表單資料
+            </p>
+            <p>2.透過JSP並利用EChart呈現圖形化資料，便於主管管控項目進度</p>
             <p class="skill-tag">
               <span>Java</span>
               <span>JSP</span>
@@ -51,7 +53,7 @@
           <div class="body">
             <p>改善原公司內ERP不足(Oracle EBS)</p>
             <p>
-              1.設計UI/UX並利用Vue開發前端電子化請購流程，便於使用者管理各單位預算和減少紙本印刷。
+              1.設計UI/UX並利用Vue開發前端電子化請購流程，便於使用者管理各單位預算和減少紙本印刷
             </p>
             <p>
               2.提供廠商交貨系統，使用行動裝置讀寫條碼，藉由一單多物減少以往廠商及收貨人員多張單據處理繁雜的問題
@@ -77,9 +79,9 @@
           </div>
           <div class="body">
             <p>
-              1.根據設計圖估算模具初值並比對各廠商報價，改善以往預計收益錯誤問題
+              1.根據設計圖估算模具初值並比對各廠商報價，改善以往預計收益與實際有出入問題
             </p>
-            <p>2.透過提供進收貨平台改善以往各包商物流進度問題</p>
+            <p>2.透過提供廠商統一進收貨平台改善以往各包商物流進度責任問題</p>
             <p class="skill-tag">
               <span>Vue</span>
               <span>Nuxt</span>
@@ -91,11 +93,71 @@
         </div>
       </div>
     </section>
+    <section class="container">
+      <div class="row">
+        <div class="col-12">
+          <div
+            class="card"
+            v-for="card in cards"
+            :key="card.id"
+            @click="simpleFade"
+          >
+            <div class="card-inner">
+              <div class="card-name">{{ card.name }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 <script>
+import { gsap } from "gsap";
+import { CSSPlugin } from "gsap/CSSPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(CSSPlugin, ScrollTrigger);
+gsap.to(".exp-card", {
+  scrollTrigger: ".exp-card",
+  autoAlpha: 0,
+  duration: 0.35,
+});
 export default {
   name: "WorkTimeline",
+  data() {
+    return {
+      cards: [
+        {
+          id: 0,
+          name: "Prima carta",
+        },
+        {
+          id: 1,
+          name: "Seconda carta",
+        },
+        {
+          id: 2,
+          name: "Terza carta",
+        },
+        {
+          id: 3,
+          name: "Quarta carta",
+        },
+      ],
+    };
+  },
+  methods: {
+    simpleFade(event) {
+      console.log(event);
+      // 淡出
+      gsap.fromTo(
+        event.target,
+        { autoAlpha: 1 },
+        { autoAlpha: 0, duration: 0.35 }
+      );
+      // 移動
+      // gsap.to(event.target, 1, { x: 600 });
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -302,10 +364,10 @@ $counter: $items - $rows + 2;
       h2 {
         text-transform: uppercase;
         font-size: 1.3rem;
-        font-weight: inherit;
+        font-weight: 1000;
         letter-spacing: 2px;
         margin: 0;
-        padding-bottom: 6px;
+        padding-bottom: 5px;
         line-height: 1rem;
         @include mq-sm {
           font-size: 165%;
@@ -319,6 +381,15 @@ $counter: $items - $rows + 2;
             font-size: 0.8rem;
           }
         }
+      }
+      h2:after {
+        content: "";
+        display: block;
+        width: 0%;
+        height: 2px;
+        margin: 10px 0;
+        background-color: #fff;
+        transition: width 0.3s 0.3s;
       }
     }
     .body {
@@ -368,6 +439,14 @@ $counter: $items - $rows + 2;
           border-color: $color;
         }
       }
+    }
+  }
+  .exp-card:hover {
+    transform: scale(1.09);
+    box-shadow: 0px 0px 25px 50px rgba(0, 0, 0, 0.08) inset;
+    transition: 700ms;
+    h2:after {
+      width: 100%;
     }
   }
 }
