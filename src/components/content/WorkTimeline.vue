@@ -1,11 +1,11 @@
 <template>
   <div>
     <section id="timeline">
-      <div class="text-center mb-3">
-        <h1 @click="simpleFade">Experience</h1>
+      <div class="experience-title text-center mb-3">
+        <h2 @click="simpleFade">Experience</h2>
       </div>
       <div class="exp-card-wrapper">
-        <div class="exp-card exp-card--step1">
+        <div id="aa" class="exp-card exp-card--step1">
           <div class="head">
             <div class="number-box">
               <span>01</span>
@@ -93,34 +93,13 @@
         </div>
       </div>
     </section>
-    <section class="container">
-      <div class="row">
-        <div class="col-12">
-          <div
-            class="card"
-            v-for="card in cards"
-            :key="card.id"
-            @click="simpleFade"
-          >
-            <div class="card-inner">
-              <div class="card-name">{{ card.name }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 <script>
 import { gsap } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(CSSPlugin, ScrollTrigger);
-gsap.to(".exp-card", {
-  scrollTrigger: ".exp-card",
-  autoAlpha: 0,
-  duration: 0.35,
-});
+
 export default {
   name: "WorkTimeline",
   data() {
@@ -158,296 +137,23 @@ export default {
       // gsap.to(event.target, 1, { x: 600 });
     },
   },
+  mounted() {
+    gsap.registerPlugin(CSSPlugin, ScrollTrigger);
+
+    const boxes = gsap.utils.toArray(".exp-card");
+    boxes.forEach((box) => {
+      gsap.to(box, {
+        scrollTrigger: {
+          trigger: box,
+          start: "top center",
+          toggleClass: "active",
+          scrub: true
+        },
+      });
+    });
+  },
 };
 </script>
 <style lang="scss" scoped>
-/* Media Queries */
-// #region RWD
-@mixin mq-xs {
-  @media (min-width: 320px) {
-    @content;
-  }
-}
-
-@mixin mq-sm {
-  @media (min-width: 480px) {
-    @content;
-  }
-}
-
-@mixin mq-md {
-  @media (min-width: 720px) {
-    @content;
-  }
-}
-
-@mixin mq-lg {
-  @media (min-width: 1000px) {
-    @content;
-  }
-}
-// #endregion
-
-// #region variable
-$background: #ffffff;
-$box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
-$border: 1px solid rgba(191, 191, 191, 0.4);
-$items: 4;
-$rows: ceil($items/2);
-
-/* Card sizing */
-
-$card-height: 225px;
-$card-width: 450px;
-$inner-margin: 20px;
-$number-size: 35px;
-$stagger: 180px;
-$outer-margin: 90px;
-$marker-size: 9px;
-
-/* Colors */
-
-$steps: #46b8e9;
-$colors: #9c88d5, #d588c1, #d59c88, #c1d588;
-$timeline: #ffffff;
-
-/* Calculations */
-
-$container-height: $rows * ($card-height + $outer-margin) + $stagger;
-$container-width: $card-width * 2 + $outer-margin * 3;
-$head-height: $number-size + 50;
-$body-height: $card-height - $head-height;
-$marker-dist: $card-width + $outer-margin/2 - $marker-size/2;
-
-/* Placeholders */
-// #endregion
-
-@include mq-lg {
-  %arrow {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-  }
-  %marker {
-    position: absolute;
-    content: "";
-    width: $marker-size;
-    height: $marker-size;
-    background-color: $timeline;
-    border-radius: $marker-size;
-    box-shadow: 0px 0px 2px 8px $background;
-  }
-}
-
-/* Some Cool Stuff */
-
-$counter: $items - $rows + 2;
-@for $i from 1 through $rows {
-  .exp-card:nth-child(#{$i*2-1}) {
-    order: $i;
-  }
-  .exp-card:nth-child(#{$i*2}) {
-    order: $counter;
-  }
-  $counter: $counter + 1;
-}
-
-/* Border Box */
-
-* {
-  box-sizing: border-box;
-}
-
-#timeline {
-  background: $background;
-  h1 {
-    font-size: 3rem;
-    font-weight: 200;
-    margin-bottom: 20px;
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    display: inline;
-    padding: 5px;
-    font-weight: bold;
-  }
-  .exp-card-wrapper {
-    position: relative;
-    margin: auto;
-    @include mq-lg {
-      display: flex;
-      flex-flow: column wrap;
-      width: $container-width;
-      height: $container-height;
-      margin: 0 auto;
-    }
-    &::after {
-      z-index: 1;
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      border-left: $border;
-      @include mq-lg {
-        border-left: 1px solid $timeline;
-      }
-    }
-  }
-  .exp-card {
-    position: relative;
-    display: block;
-    margin: 10px auto 80px;
-    max-width: 94%;
-    z-index: 2;
-    @include mq-sm {
-      max-width: 60%;
-      box-shadow: $box-shadow;
-    }
-    @include mq-md {
-      max-width: 40%;
-    }
-    @include mq-lg {
-      max-width: $card-width;
-      height: $card-height;
-      margin: $outer-margin;
-      margin-top: $outer-margin/2;
-      margin-bottom: $outer-margin/2;
-      &:nth-child(odd) {
-        margin-right: $outer-margin/2;
-        .head::after {
-          @extend %arrow;
-          border-left-width: 15px;
-          border-left-style: solid;
-          left: 100%;
-        }
-        .head::before {
-          @extend %marker;
-          left: $marker-dist + 1;
-        }
-      }
-      &:nth-child(even) {
-        margin-left: $outer-margin/2;
-        .head::after {
-          @extend %arrow;
-          border-right-width: 15px;
-          border-right-style: solid;
-          right: 100%;
-        }
-        .head::before {
-          @extend %marker;
-          right: $marker-dist - 1;
-        }
-      }
-      &:nth-child(2) {
-        margin-top: $stagger;
-      }
-    }
-    .head {
-      position: relative;
-      display: flex;
-      align-items: center;
-      color: #fff;
-      font-weight: 400;
-      .number-box {
-        display: inline;
-        float: left;
-        margin: $inner-margin;
-        padding: 10px;
-        font-size: $number-size;
-        line-height: $number-size;
-        font-weight: 600;
-        background: rgba(0, 0, 0, 0.17);
-      }
-      h2 {
-        text-transform: uppercase;
-        font-size: 1.3rem;
-        font-weight: 1000;
-        letter-spacing: 2px;
-        margin: 0;
-        padding-bottom: 5px;
-        line-height: 1rem;
-        @include mq-sm {
-          font-size: 165%;
-          line-height: 1.2rem;
-        }
-        span {
-          display: block;
-          font-size: 0.6rem;
-          margin: 0;
-          @include mq-sm {
-            font-size: 0.8rem;
-          }
-        }
-      }
-      h2:after {
-        content: "";
-        display: block;
-        width: 0%;
-        height: 2px;
-        margin: 10px 0;
-        background-color: #fff;
-        transition: width 0.3s 0.3s;
-      }
-    }
-    .body {
-      background: #fff;
-      border: $border;
-      border-top: 0;
-      padding: $inner-margin;
-      color: gray;
-      @include mq-lg {
-        min-height: $body-height;
-      }
-      position: relative;
-      p {
-        font-size: 14px;
-        line-height: 2rem;
-        margin-bottom: $inner-margin;
-      }
-      img {
-        display: block;
-        width: 100%;
-      }
-
-      .skill-tag {
-        position: absolute;
-        right: 5px;
-        display: flex;
-        flex-wrap: wrap;
-        @include mq-md {
-          bottom: -0.8rem;
-        }
-        span {
-          border: 0.1rem solid var(--secondary-color);
-          margin: 0.1rem;
-          padding: 0.1rem 0.7rem;
-          border-radius: 5rem;
-          font-size: 0.7rem;
-          color: var(--secondary-color);
-          font-weight: bold;
-        }
-      }
-    }
-    @for $i from 1 through $items {
-      &--step#{$i} {
-        $color: nth($colors, ((($i - 1) % 4) + 1));
-        background-color: $color;
-        .head::after {
-          border-color: $color;
-        }
-      }
-    }
-  }
-  .exp-card:hover {
-    transform: scale(1.09);
-    box-shadow: 0px 0px 25px 50px rgba(0, 0, 0, 0.08) inset;
-    transition: 700ms;
-    h2:after {
-      width: 100%;
-    }
-  }
-}
+@import "scss/WorkTimeline.scss";
 </style>

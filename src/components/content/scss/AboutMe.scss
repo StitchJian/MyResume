@@ -1,0 +1,89 @@
+// #region RWD
+@mixin mq-xs {
+    @media (min-width: 320px) {
+        @content;
+    }
+}
+
+@mixin mq-sm {
+    @media (min-width: 480px) {
+        @content;
+    }
+}
+
+@mixin mq-md {
+    @media (min-width: 720px) {
+        @content;
+    }
+}
+
+@mixin mq-lg {
+    @media (min-width: 1000px) {
+        @content;
+    }
+}
+
+// #endregion
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.area-region {
+    padding: 20rem 10rem;
+    background: linear-gradient( to right bottom, var(--secondary-color), var(--primary-color));
+    background-size: cover;
+    transform: skewY(7deg);
+    margin-top: 10rem;
+}
+
+.about-me {
+    position: relative;
+    padding-top: 3.5rem !important;
+    padding-bottom: 2rem !important;
+    overflow: hidden;
+    color: var(--compared-color);
+    font-weight: bold;
+    text-align: center;
+    p {
+        text-align: left;
+        @include mq-xs {
+            margin-top: 2rem;
+            display: inline-block;
+            width: 70%;
+        }
+        @include mq-sm {
+            margin-top: 2rem;
+            display: inline-block;
+            width: 80%;
+        }
+        @include mq-lg {
+            margin-top: 1rem;
+            width: 100%;
+        }
+    }
+}
+
+.about-me-bg {
+    background-image: linear-gradient( -170deg, var(--secondary-color) 5%, var(--primary-color) 64%, var(--white-color) 30%), url("~@/assets/images/image1.jpg");
+    background-size: cover;
+    background-position: 0 10%;
+}
+
+.about-me-image {
+    position: relative;
+}
+
+.about-me-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    h2 {
+        background-color: var(--compared-color);
+        color: var(--primary-color);
+        display: inline;
+        align-items: flex-end;
+        width: auto;
+        height: 10%;
+        padding: 5px 10px;
+    }
+}

@@ -3,15 +3,27 @@
     class="about-me about-me-bg d-flex justify-content-center align-items-center"
   >
     <div class="container">
+      <div class="about-me-title">
+        <h2>
+          <strong class="">About me</strong>
+        </h2>
+      </div>
       <div class="row">
+        <!-- head shot -->
+        <div class="col-lg-6 col-12">
+          <div class="about-me-image">
+            <img
+              src="@/assets/images/working-girl1.png"
+              class="img-fluid"
+              alt="working girl"
+            />
+          </div>
+        </div>
         <div
           class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-start align-items-center"
         >
-          <div>
-            <h2 class="about-me-title" data-aos="fade-up">
-              <strong class="">About me</strong>
-            </h2>
-            <p class="mt-4" style="word-wrap: break-word">
+          <div >
+            <p class="mt-4" >
               根據需求從無到有開發系統改善作業流程，使用主流前端框架Vue及Nuxt，利用axios與.Net
               core做前後端分離， 並在後端部分使用Entity
               Framework做ORM減少部分人員對Transact-SQL/Stored
@@ -25,16 +37,6 @@
             </p>
           </div>
         </div>
-        <!-- head shot -->
-        <div class="col-lg-6 col-12">
-          <div class="about-me-image" data-aos="fade-up" data-aos-delay="300">
-            <img
-              src="@/assets/images/working-girl.png"
-              class="img-fluid"
-              alt="working girl"
-            />
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -45,55 +47,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-* {
-  padding: 0;
-  margin: 0;
-}
-
-.area-region {
-  padding: 20rem 10rem;
-  background: linear-gradient(
-    to right bottom,
-    var(--secondary-color),
-    var(--primary-color)
-  );
-  background-size: cover;
-  transform: skewY(7deg);
-  margin-top: 10rem;
-}
-
-.about-me {
-  position: relative;
-  padding-top: 3.5rem !important;
-  padding-bottom: 2rem !important;
-  overflow: hidden;
-  color: var(--compared-color);
-  padding: 5px;
-  font-weight: bold;
-}
-
-.about-me-bg {
-  background-image: linear-gradient(
-      170deg,
-      var(--secondary-color) 5%,
-      var(--primary-color) 64%,
-      var(--white-color) 30%
-    ),
-    url("~@/assets/images/image1.jpg");
-  background-size: cover;
-  background-position:0 10%;
-   
-}
-
-.about-me-image {
-  position: relative;
-  top: 2em;
-}
-
-.about-me-title {
-  background-color: var(--compared-color);
-  color: var(--primary-color);
-  display: inline-block;
-  padding: 5px;
-}
+@import "scss/AboutMe.scss";
 </style>
