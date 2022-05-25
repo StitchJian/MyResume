@@ -133,7 +133,6 @@ $counter: $items - $rows+2;
             left: 50%;
             border-left: $border;
             @include mq-lg {
-                // border-left: 1px solid gray $timeline;
                 left: 51.5%;
             }
         }
