@@ -1,18 +1,27 @@
 <template>
   <div>
     <div class="area-region">
-      <div class="row justify-content-center">
-        <div class="col col-lg-5 col-md-12 col-sm-10 col-12">
-          <div class=""></div>
-          <!-- <skill-card :content="frontEnd" /> -->
-          <div class="test d-flex justify-content-center align-items-center">
-            <div class="test-b">123</div>
+      <div>
+        <div class="skill-bg"></div>
+        <div class="skill-content">
+          <div class="row justify-content-center text-center">
+            <div class="col col-lg-4 col-md-4 col-sm-4 col-4">
+              <h2>FrontEnd</h2>
+              <ul>
+                <li v-for="item in frontEnd" :key="item">{{ item }}</li>
+              </ul>
+            </div>
+            <div class="col col-lg-4 col-md-4 col-sm-4 col-4">
+              <h2>BackEnd</h2>
+              <ul>
+                <li v-for="item in backEnd" :key="item">{{ item }}</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="col col-lg-5 col-md-12 col-sm-10 col-12">
-          <!-- <skill-card :content="BackEnd" /> -->
-        </div>
       </div>
+      <!-- </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -20,42 +29,40 @@
 import { gsap } from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import SkillCard from "./SkillCard.vue";
 export default {
   name: "MySkill",
-  // components: { SkillCard },
   data() {
     return {
       frontEnd: ["HTML", "CSS3&SCSS", "JavaScript", "Vue"],
-      BackEnd: [".Net Core", "Java", "Orace", "MySQL"],
+      backEnd: [".Net Core", "Java", "Orace", "MySQL"],
     };
   },
   mounted() {
     gsap.registerPlugin(CSSPlugin, ScrollTrigger);
 
-    gsap.to(".test", {
+    gsap.to(".skill-bg", {
       scrollTrigger: {
-        trigger: ".test",
-        start: "top center",
-        toggleClass: "active",
+        trigger: ".skill-bg",
+        toggleClass: "active-bg",
         scrub: true,
       },
-      duration: 3,
+      duration: 1,
     });
 
-    gsap.to(".test-b", {
+    gsap.to(".skill-content", {
       scrollTrigger: {
-        trigger: ".test-b",
-        start: "top center",
+        trigger: ".skill-content",
+        toggleClass: "active-content",
         scrub: true,
       },
-      duration: 3,
-      x: 10,
+      x: window.innerWidth * 0.15,
+      duration: 1,
     });
   },
 };
 </script>
 <style lang="scss" scoped>
+@import "../../assets/scss/minxin.scss";
 * {
   padding: 0;
   margin: 0;
@@ -75,31 +82,54 @@ export default {
   background-position: right bottom;
   transform: skewY(7deg);
   margin-top: 5rem;
+  margin-bottom: 5rem;
+  overflow-x: hidden;
 }
 
-.test {
-  margin-top: 30px;
-  height: 300px;
-  width: 300px;
-  background-color: red;
+.skill-bg {
+  position: absolute;
+  top: 20%;
+  height: 60%;
+  width: 80%;
+  color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  background-image: url("~@/assets/images/skillBg.jpg");
+  background-size: cover;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0px 0.3rem 0.5rem rgba(0, 0, 0, 80%);
 }
 
-.test-b {
-  font-size: 30px;
-  width: 100px;
-  transform: perspective(10vw) rotateY(-80deg) translate(10px, 0, 20px);
-  z-index: 1000;
+.skill-content {
+  position: absolute;
+  width: 80%;
+  top: 30%;
+  text-shadow: white 0 0px 1px, black 1px 0px 2px, white -1px 0px 2px;
+  ul {
+    list-style: none;
+  }
 }
 
-.active-b{
-
-}
-
-.active {
+.active-content {
   transition: 700ms;
-  transform: perspective(100vh) rotateY(45deg);
+}
+
+.active-bg {
+  transition: 700ms;
+  width: 30%;
   p {
     transform: perspective(-100vh) rotateY(45deg);
+  }
+
+  @include mq-xs {
+    transform: perspective(35vh) rotateY(45deg);
+    background-size: 100% 100%;
+    margin-right: 1rem;
+  }
+
+  @include mq-lg {
+    transform: perspective(100vh) rotateY(45deg);
   }
 }
 </style>

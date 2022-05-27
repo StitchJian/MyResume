@@ -1,8 +1,8 @@
 <template>
   <div>
     <about-me />
-    <work-timeline />
     <my-skill />
+    <work-timeline />
     <div></div>
   </div>
 </template>

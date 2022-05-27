@@ -1,31 +1,6 @@
-/* Media Queries */
+@import "../../../assets/scss/minxin.scss";
 
-// #region RWD
-@mixin mq-xs {
-    @media (min-width: 320px) {
-        @content;
-    }
-}
 
-@mixin mq-sm {
-    @media (min-width: 480px) {
-        @content;
-    }
-}
-
-@mixin mq-md {
-    @media (min-width: 720px) {
-        @content;
-    }
-}
-
-@mixin mq-lg {
-    @media (min-width: 1000px) {
-        @content;
-    }
-}
-
-// #endregion
 // #region variable
 $background: #ffffff;
 $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
