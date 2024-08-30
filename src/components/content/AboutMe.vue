@@ -2,7 +2,7 @@
   <section>
     <div class="about">
       <h2>
-        <strong class="">About me</strong>
+        <strong>About me</strong>
       </h2>
       <div class="row justify-content-center">
         <div class="col col-lg-4 col-md-8 col-10">
@@ -35,6 +35,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/scss/minxin.scss";
 .about {
+  overflow-x: hidden;
   text-align: center;
   color: rgb(119, 119, 119);
   h2 {
