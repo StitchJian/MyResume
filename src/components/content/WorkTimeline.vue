@@ -10,15 +10,13 @@
             <div class="number-box">
               <span>01</span>
             </div>
-            <h2>Enovia PLM</h2>
+            <h3>{{ $t('workTimeline.part1.title') }}</h3>
           </div>
           <div class="body">
-            <p>
-              1.根據單位需求利用Java配合Enovia PLM架構制定修改簽核流程及表單資料
-            </p>
-            <p>2.透過JSP並利用EChart呈現圖形化資料，便於主管管控項目進度</p>
+            <p>{{ $t('workTimeline.part1.content1') }}</p>
+            <p>>{{ $t('workTimeline.part1.content2') }}</p>
             <p class="text-end" @click="showModal('A')">
-              <i>更多...</i>
+              <i>{{ $t('workTimeline.overflow') }}</i>
             </p>
             <p class="skill-tag">
               <span>Java</span>
@@ -33,14 +31,12 @@
             <div class="number-box">
               <span>02</span>
             </div>
-            <h2>MES(數據採集)</h2>
+            <h3>{{ $t('workTimeline.part2.title') }}</h3>
           </div>
           <div class="body">
-            <p>
-              收集整理生產線上PLC點位資料並拋轉回鼎捷MES系統做使用，省去額外設備商客製費用
-            </p>
+            <p>{{ $t('workTimeline.part2.content1') }}</p>
             <p class="text-end" @click="showModal('B')">
-              <i>更多...</i>
+              <i>{{ $t('workTimeline.overflow') }}</i>
             </p>
             <p class="skill-tag">
               <span>Virtual Basic</span>
@@ -54,21 +50,15 @@
             <div class="number-box">
               <span>03</span>
             </div>
-            <h2>SRM供應商平台系統</h2>
+            <h3>{{ $t('workTimeline.part3.title') }}</h3>
           </div>
           <div class="body">
-            <p>改善原公司內ERP不足(Oracle EBS)</p>
-            <p>
-              1.利用Vue開發前端E化請購流程，減少紙本印刷和採購、倉管、財務間的溝通成本
-            </p>
-            <p>
-              2.提供廠商交貨系統，使用行動裝置讀寫條碼，藉由一單多物減少以往廠商及收貨人員多張單據處理問題(改善減少70%往常作業時間)
-            </p>
-            <p>
-              3.管理介面使用讓各使用者知道目前進度及尚未完成項目，減少過往返查情況
-            </p>
+            <p>{{ $t('workTimeline.part3.content1') }}</p>
+            <p>{{ $t('workTimeline.part3.content2') }}</p>
+            <p>{{ $t('workTimeline.part3.content3') }}</p>
+            <p>{{ $t('workTimeline.part3.content4') }}</p>
             <p class="text-end" @click="showModal('C')">
-              <i>更多...</i>
+              <i>{{ $t('workTimeline.overflow') }}</i>
             </p>
             <p class="skill-tag">
               <span>Vue</span>
@@ -86,15 +76,13 @@
             <div class="number-box">
               <span>04</span>
             </div>
-            <h2>工裝進度追蹤系統</h2>
+            <h3>{{ $t('workTimeline.part4.title') }}</h3>
           </div>
           <div class="body">
-            <p>
-              1.因應PLM專案模夾量治具追蹤長期手工整理，故串接plm&與工機部門舊有VB6系統資料
-            </p>
-            <p>2.因應license U數限制，使用webservice將資料接出讓其他使用者也可查看管理</p>
+            <p>{{ $t('workTimeline.part4.content1') }}</p>
+            <p>{{ $t('workTimeline.part4.content2') }}</p>
             <p class="text-end" @click="showModal('D')">
-              <i>更多...</i>
+              <i>{{ $t('workTimeline.overflow') }}</i>
             </p>
             <p class="skill-tag">
               <span>Vue</span>

@@ -1,0 +1,53 @@
+{
+    "about": {
+        "title": "Seeking Knowledge and Challenging Myself",
+        "contentPart1": "Developing systems from scratch to improve operational processes based on requirements, using popular front-end frameworks like Vue and Nuxt, utilizing Axios and .Net Core for front-end and back-end separation, and employing Entity Framework in the back-end to reduce the need for staff expertise in Transact-SQL/Stored Procedures, thus enhancing project management!",
+        "contentPart2": "Collaborating with departments to discuss requirements and addressing user pain points at different stages, while regularly collecting feedback on user experience. Recently, I've been experimenting with Cypress for E2E testing to reduce manual testing time.",
+        "contentPart3": "In my spare time, I participate in community activities to absorb new knowledge or read IT-related articles, constantly improving my technical skills to keep pace with the times."
+    },
+    "modalA": {
+        "title": "Enovia PLM",
+        "contentPart1": "1. Developed a product approval process based on requests from the technical and sales departments, automatically adding the corresponding personnel for approval, thus avoiding manual reassignments.",
+        "contentPart2": "2. Used EChart to visualize progress, such as pie charts showing delayed stages or the number of pending items for each unit, helping managers clearly allocate tasks and avoid project delays.",
+        "contentPart3": "3. In the design approval process, Catia design files were converted to PDFs and saved for distribution, making it easier for personnel without design software to view the files."
+    },
+    "modalB": {
+        "title": "MES (Data Collection)",
+        "contentPart1": "When new machines are added or modified on the production line, MES needs to collect different data from PLCs, saving the cost of software modifications from equipment suppliers. For example, when three new workstations are added to the production line, three sets of costs are avoided."
+    },
+    "modalC": {
+        "title": "Supplier Platform System",
+        "contentPart1": "1. Digitized the purchasing process, changing from single-item forms to multi-item forms, improving the problem of processing hundreds of three-part forms daily, reducing the number of forms by two-thirds, and eliminating the issue of document organization and storage.",
+        "contentPart2": "2. Provided a supplier delivery platform that facilitates document printing, allowing barcode scanning on mobile devices for goods receipt, improving the previous process where staff had to manually record in the receiving area and then go to the office to process each order. For example, processing 10 orders used to take over 10 minutes, but now it can be completed in under 2 minutes.",
+        "contentPart3": "3. Enabled progress tracking through a management interface, such as tracking warehouse transfers that could be delayed due to time gaps in verification, allowing immediate follow-up using color-coded progress bars."
+    },
+    "modalD": {
+        "title": "Tooling Progress Tracking System",
+        "contentPart1": "1. Previously, weekly progress meetings required collecting project data from PLM and comparing it with the tooling department’s records (taking about 1.5 person-days). Now, data is synchronized, eliminating the time-consuming process.",
+        "contentPart2": "2. Compiled the required progress reports for each customer."
+    },
+    "workTimeline": {
+        "overflow": "More...",
+        "part1": {
+            "title": "Enovia PLM",
+            "content1": "1. Based on departmental requirements, developed and modified the approval process and form data using Java with the Enovia PLM architecture.",
+            "content2": "2. Used JSP and EChart to visualize data, making it easier for managers to control project progress."
+        },
+        "part2": {
+            "title": "MES (Data Collection)",
+            "content1": "Collected and organized PLC point data from the production line and transferred it back to the MES system, eliminating additional customization costs from equipment suppliers."
+        },
+        "part3": {
+            "title": "SRM Supplier Platform System",
+            "content1": "Improved the company’s internal ERP deficiencies (Oracle EBS).",
+            "content2": "1. Developed an electronic purchasing process using Vue, reducing the costs of communication between purchasing, warehouse, and finance, and cutting down on paper forms.",
+            "content3": "2. Provided a supplier delivery system that uses mobile devices to scan barcodes, reducing the problems of processing multiple forms for suppliers and warehouse staff.",
+            "content4": "3. The management interface allows users to track current progress and pending items, reducing the need to repeatedly check for updates."
+        },
+        "part4": {
+            "title": "Tooling Progress Tracking System",
+            "content1": "1. Addressed long-standing manual tracking of tooling and fixture progress by integrating PLM with the tooling department's legacy VB6 system.",
+            "content2": "2. Due to license limitations, used web services to make data available for other users to view and manage."
+        }
+    }
+}

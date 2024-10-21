@@ -8,7 +8,7 @@
         <div class="col-lg-6 col-12">
           <div class="header-image">
             <img
-              src="@/assets/images/working-girl.png"
+              src="@/assets/images/working.png"
               class="img-fluid"
               alt="working girl"
             />

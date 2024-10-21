@@ -1,11 +1,11 @@
 <template>
   <div>
     <custom-modal ref="modal">
-      <template v-slot:title><h2>MES(數據採集)</h2></template>
+      <template v-slot:title>
+        <h2> {{ $t('modalB.title') }}</h2>
+      </template>
       <template v-slot:content>
-        <p>
-          因應產線新增修改機台時，MES需採集PLC不同數據，省去設備商修改軟體的價錢，如:產線工作站增添3個站位時就省去三筆費用
-        </p>
+        <p> {{ $t('modalB.contentPart1') }} </p>
       </template>
     </custom-modal>
   </div>
