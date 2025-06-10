@@ -39,7 +39,7 @@
               <i>{{ $t('workTimeline.overflow') }}</i>
             </p>
             <p class="skill-tag">
-              <span>Virtual Basic</span>
+              <span>Visual Basic</span>
               <span>MX Component</span>
             </p>
           </div>
@@ -89,8 +89,8 @@
               <span>.Net6</span>
               <span>Java</span>
               <span>SQL Server</span>
-              <span>Azure Devops</span>
-              <span>Nuit</span>
+              <span>Azure DevOps</span>
+              <span>NUnit</span>
               <span>Cypress</span>
             </p>
           </div>

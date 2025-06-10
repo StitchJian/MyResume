@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       frontEnd: ["HTML", "CSS3&SCSS", "JavaScript", "Vue"],
-      backEnd: [".Net Core", "Java", "Orace", "MySQL"],
+      backEnd: [".Net Core", "Java", "Oracle", "MySQL"],
     };
   },
   mounted() {
