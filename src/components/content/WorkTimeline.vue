@@ -14,7 +14,7 @@
           </div>
           <div class="body">
             <p>{{ $t('workTimeline.part1.content1') }}</p>
-            <p>>{{ $t('workTimeline.part1.content2') }}</p>
+            <p>{{ $t('workTimeline.part1.content2') }}</p>
             <p class="text-end" @click="showModal('A')">
               <i>{{ $t('workTimeline.overflow') }}</i>
             </p>
